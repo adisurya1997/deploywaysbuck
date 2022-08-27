@@ -1,6 +1,6 @@
 module waysbuck
 
-go 1.19
+go 1.18
 
 require (
 	github.com/cloudinary/cloudinary-go/v2 v2.1.0 // indirect
