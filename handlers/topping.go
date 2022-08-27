@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"strconv"
 	"context"
+	"fmt"
 
 	"github.com/cloudinary/cloudinary-go/v2"
 	"github.com/cloudinary/cloudinary-go/v2/api/uploader"

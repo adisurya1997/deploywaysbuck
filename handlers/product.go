@@ -9,6 +9,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"strconv"
+	"fmt"
 
 	"context"
 	"github.com/cloudinary/cloudinary-go/v2"
