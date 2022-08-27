@@ -97,7 +97,7 @@ func UploadFile(next http.HandlerFunc) http.HandlerFunc {
     data := tempFile.Name()
 
     // add filename to ctx
-    ctx := context.WithValue(r.Context(), "dataFile", filename)
+    ctx := context.WithValue(r.Context(), "dataFile", data)
     next.ServeHTTP(w, r.WithContext(ctx))
   })
 }
