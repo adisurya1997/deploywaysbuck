@@ -51,9 +51,6 @@ func (h *handlerCart) CartByTransaction(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
-	for i, p := range cart {
-		cart[i].Product.Image = path_file_cart + p.Product.Image
-	}
 
 	w.WriteHeader(http.StatusOK)
 	response := dto.SuccessResult{Code: http.StatusOK, Data: cart}
