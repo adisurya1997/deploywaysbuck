@@ -24,8 +24,6 @@ type handlerProduct struct {
 }
 
 // Create `path_file` Global variable here ...
-var path_file = "http://localhost:5000/uploads/"
-
 func HandlerProduct(ProductRepository repositories.ProductRepository) *handlerProduct {
 	return &handlerProduct{ProductRepository}
 }
@@ -52,7 +50,9 @@ func (h *handlerProduct) GetProduct(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
 
 	var product models.Product
+
 	product, err := h.ProductRepository.GetProduct(id)
+
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		response := dto.ErrorResult{Code: http.StatusBadRequest, Message: err.Error()}
