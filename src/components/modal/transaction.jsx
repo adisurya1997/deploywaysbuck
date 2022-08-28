@@ -20,7 +20,7 @@ export default function ModalTransaction({ showTrans, close, id }) {
       <Card className="card-transaction">
         {transaction?.carts?.map((item, index) => (
               <div className="left-side-card d-flex" key={index}>
-                  <img className="rounded py-3 ms-3 me-3" src={"http://localhost:5000/uploads/" + item.product.image}/>
+                  <img className="rounded py-3 ms-3 me-3" src={item.product.image}/>
                   <div className="datas-transaction mt-4 ">
                       <div className="title-names-transaction">
                           <p>{item.product.title}</p>

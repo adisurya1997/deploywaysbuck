@@ -62,7 +62,7 @@ const Profile = () => {
                         <Card className="card-transaction mb-5">
                             {item?.carts?.map((cart, idx) => (
                                 <div className="left-side-card d-flex" key={index}>
-                                    <img className="rounded py-3 ms-3 me-3" src={"http://localhost:5000/uploads/" + cart?.product?.image }/>
+                                    <img className="rounded py-3 ms-3 me-3" src={cart?.product?.image }/>
                                     <div className="datas-transaction mt-4 ">
                                         <div className="title-names-transaction">
                                             <p>{cart?.product?.title}</p>
