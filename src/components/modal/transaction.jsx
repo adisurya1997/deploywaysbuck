@@ -1,14 +1,16 @@
 import React from "react";
 import { Modal , Card} from "react-bootstrap";
 import Rupiah from "rupiah-format";
-import { useQuery } from 'react-query';
+import { useState } from "react";
+import { useEffect } from "react";
 import { API } from '../../config/api';
 import Logo from "../../assets/img/logo-waysbook.png";
 import Barcode from "../../assets/img/barcode.png"
 
 
 export default function ModalTransaction({ showTrans, close, id }) {
-  
+    const [transaction, serTransaction] = useState([]);
+
     useEffect(() => {
         API.get("/transaction/" + id)
           .then((res) => {
