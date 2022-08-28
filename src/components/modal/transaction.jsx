@@ -9,11 +9,13 @@ import Barcode from "../../assets/img/barcode.png"
 
 export default function ModalTransaction({ showTrans, close, id }) {
   
-    let { data: transaction } = useQuery("transactionCache", async () => {
-        const response = await API.get("/transaction/" + id);
-        console.log(response);
-        return response?.data?.data;
-      });
+    useEffect(() => {
+        API.get("/transaction/" + id)
+          .then((res) => {
+            serTransaction(res.data.data);
+          })
+          .catch((err) => console.log("error", err));
+    });
 
   return (
     <Modal show={showTrans} onHide={close} className="modal-transaction">
@@ -29,7 +31,9 @@ export default function ModalTransaction({ showTrans, close, id }) {
                           <div className="just-toping">
                               Toping
                               &nbsp; : <b className="times-new">
-                                  {item?.topping?.title}
+                              {item.topping.map((topping, idx) => (
+                                <span key={idx}>{topping.title},</span>
+                              ))}
                               </b>
                           </div>
                       </div>
